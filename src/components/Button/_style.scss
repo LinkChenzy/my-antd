@@ -1,0 +1,71 @@
+// 默认button样式
+.btn {
+    position: relative;
+    display: inline-block;
+    font-weight: $btn-font-weight;
+    line-height: $btn-line-height;
+    color: $body-color;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+    background-image: none;
+    border: $btn-border-width solid transparent;
+    @include button-size( $btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
+    box-shadow: $btn-box-shadow;
+    cursor: pointer;
+    transition: $btn-transition;
+    // :disabled 状态
+    &.disabled, &[disabled] {
+        cursor: not-allowed;
+        opacity: $btn-disabled-opacity;
+        box-shadow: none;
+        * > {
+            pointer-events: none;
+        }
+    }
+}
+
+// size 为lg 的button
+.btn-lg {
+    @include button-size( $btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg );
+}
+
+// size 为sm 的button
+.btn-lg {
+    @include button-size( $btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm );
+}
+
+// primary button
+.btn-primary {
+    @include button-style( $primary, $primary, $white )
+}
+
+// danger button
+.btn-danger {
+    @include button-style( $danger, $danger, $white )
+}
+
+// primary button
+.btn-default {
+    @include button-style( $white, $gray-400, $body-color, $white, $primary, $primary )
+}
+
+// a 链接形式的button
+.btn-link {
+    font-weight: $font-weight-normal;
+    color: $btn-link-color;
+    text-decoration: $link-decoration;
+    box-shadow: none;
+    &:hover {
+        color: $btn-link-hover-color;
+        text-decoration: $link-hover-decoration;
+    }
+    &:focus, &.focus{
+        text-decoration: $link-hover-decoration;
+        box-shadow: none;
+    }
+    &:disabled, &.disabled {
+        color: $btn-link-disabled-color;
+        pointer-events: none;
+    }
+}
