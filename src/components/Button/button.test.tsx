@@ -20,14 +20,14 @@ const defaultProps = {
 describe('test button component', () => {
     // 默认的button测试用例
     it('default button', () => {
-        const wrapper = render(<Button> Test </Button>)
+        const wrapper = render(<Button {...defaultProps}> Test </Button>)
         const element = wrapper.getByText('Test') as HTMLButtonElement
         expect(element).toBeInTheDocument()
         expect(element.tagName).toEqual('BUTTON')
         expect(element).toHaveClass('btn btn-default')
         expect(element.disabled).toBeFalsy()
         fireEvent.click(element)
-        // expect(defaultProps.onClick).toHaveBeenCalled()
+        expect(defaultProps.onClick).toHaveBeenCalled()
     })
     // 拥有不同属性的button size or btnType
     it('should render the correct component based on different props', () => {
@@ -51,6 +51,6 @@ describe('test button component', () => {
         expect(element).toBeInTheDocument()
         expect(element.disabled).toBeTruthy()
         fireEvent.click(element)
-        // expect(disabledProps.onClick).not.toHaveBeenCalled()
+        expect(disabledProps.onClick).not.toHaveBeenCalled()
     })
 })
