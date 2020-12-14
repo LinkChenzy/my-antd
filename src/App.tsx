@@ -3,6 +3,7 @@ import Button from './components/Button/button'
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
+import { Input } from './components/Input/input'
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
                     <MenuItem>xiala</MenuItem>
                 </SubMenu>
             </Menu>
-
+            <Input />
         </section>
     );
 }
